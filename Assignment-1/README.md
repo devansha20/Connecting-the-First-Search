@@ -1,5 +1,6 @@
 # Assignment-1
 
+All tasks have been coded in a single file. Uncomment the required task and run the code.
 It includes the following tasks for undirected graphs:
 
 ## 1. DFS implementation with edge classifier
@@ -13,3 +14,5 @@ Gives the path from source vertex to required vertex
 ## 3. Using BFS to classify vertices according to number of connected graphs
 
 ## 4. Using DFS to check for any cycles
+
+## 5. Deleting Bridges using DFS

@@ -12,7 +12,7 @@ int n;
 
 vector<int> tin;
 vector<int> tout;
-vector<int> dist, parent;
+vector<int> dist, parent, low;
 int dfs_timer = 0;
 
 // DEPTH FIRST SEARCH ------------------------------------------------------------- //
@@ -140,6 +140,32 @@ void cycle(int a)
     return;
 };
 
+void dfs_bridge(int s)
+{
+    visited[s] = true;
+    tin[s] = low[s] = dfs_timer++;
+
+    for (int i = 0; i < adj[s].size(); i++)
+    {
+        int a = adj[s][i];
+        if (parent[s] == a)
+            continue;
+        else if (visited[a] == true)
+        {
+            low[s] = min(low[s], tin[a]);
+        }
+        else
+        {
+            dfs_bridge(a);
+            low[s] = min(low[s], low[a]);
+            parent[a] = s;
+            if (low[a] > tin[s])
+                cout << s << "," << a << " is a bridge" << endl;
+        }
+    }
+    return;
+};
+
 // ------------------------------------------------------------------------------------------>
 
 int main()
@@ -167,7 +193,7 @@ int main()
 
     vector<bool> s_visited(n, false);
     vector<int> samp(n, 0);
-    visited = s_visited, tin = samp, tout = samp, dist = samp, parent = samp;
+    visited = s_visited, tin = samp, tout = samp, dist = samp, parent = samp, low = samp; // assigning n sized vector with 0 value
 
     /* Just uncomment whichever task you want to execute and run with appropriate parameters */
 
@@ -177,9 +203,9 @@ int main()
     // edge_checker(u, v);
 
     // 2nd task- BFS and distance vector
-    s = 0;
-    bfs();
-    dist_vector(5);
+    // s = 0;
+    // bfs();
+    // dist_vector(5);
 
     // 3rd task- Connected Components using BFS
     // vector<int> comp;
@@ -190,6 +216,10 @@ int main()
     // 4th task- Cycle detection using DFS, keep n>=3
     // parent[s] = -1;
     // cycle(s);
+
+    // (Attempt) 5th task- Deleting Bridges using DFS and low value (not giving correct output)
+    // parent[0] = -1;
+    // dfs_bridge(0);
 
     return 0;
 }
