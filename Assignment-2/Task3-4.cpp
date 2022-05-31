@@ -81,7 +81,7 @@ vector<int> SCC(vector<vector<int>> vec)
     return ans;
 }
 
-void twosat(int n, vector<int> a, vector<int> b)
+void twosat(int n, vector<int> a, vector<int> b, vector<char> &c)
 {
     int m = a.size();
     vector<vector<int>> vec(n * 2);
@@ -148,8 +148,20 @@ void twosat(int n, vector<int> a, vector<int> b)
         }
     }
     for (int i = 0; i < n; i++)
+    {
         if (ans[i] == ans[i + n])
+        {
             cout << "IMPOSSIBLE" << endl;
+            return;
+        }
+        else if (ans[i] > ans[i + n])
+            c[i] = '-';
+        else
+            c[i] = '+';
+    }
+    for (int i = 0; i < n; i++)
+        cout << c[i] << " ";
+    cout << endl;
     return;
 };
 
@@ -180,6 +192,7 @@ int main()
     // int n, m;
     // cin >> m >> n;
     // vector<int> a(m), b(m);
+    // vector<char> c(n);
     // for (int i = 0; i < m; i++)
     // {
     //     char c, d;
@@ -190,7 +203,7 @@ int main()
     //     if (d == '-')
     //         b[i] *= -1;
     // }
-    // twosat(n, a, b);
+    // twosat(n, a, b, c);
 
     return 0;
 }
