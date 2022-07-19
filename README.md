@@ -1,6 +1,6 @@
 # Connecting-the-First-Search
 
-_Summer Project'22, Stamatics IIT Kanpur_
+> _Summer Project'22, Stamatics IIT Kanpur_
 
 ## Graph Algorithm
 
