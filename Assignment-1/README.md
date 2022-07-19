@@ -1,18 +1,18 @@
 # Assignment-1
 
-All tasks have been coded in a single file. Uncomment the required task and run the code.
+All tasks have been coded in a single file **code.cpp**. Uncomment the required task and run the code.
 It includes the following tasks for undirected graphs:
 
-## 1. DFS implementation with edge classifier
+1. DFS which visits all nodes and maintains tin and tout values for each node. Also
+   implement a function which when given edge (u, v) classifies it into tree edge or back
+   edge.
 
-Classifies (u,v) as either 'Tree edge' or 'Back edge'
+2. BFS which computes distance from a given vertex s. Return the distance vector.
 
-## 2. BFS implementation with distance vector
+3. Use DFS/BFS to return connected components of graph. If you have k connected
+   components Give each connected component unique id from 1 to k. Return vector
+   which maps each vertex to id of connected component it belongs to.
 
-Gives the path from source vertex to required vertex
+4. Use DFS/BFS to check if graph contains any cycle.
 
-## 3. Using BFS to classify vertices according to number of connected graphs
-
-## 4. Using DFS to check for any cycles
-
-## 5. Deleting Bridges using DFS
+5. Modify bridge finding algorithm to delete all the bridges in graph.
